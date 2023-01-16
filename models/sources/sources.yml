@@ -1,5 +1,7 @@
 version: 2
 
+#To Do: inserir descrições e testes para as tabelas das categorias production, purchasing e sales.
+
 sources: 
   - name: erp
     description: Principais dados do erp (SAP) da Adventure Works.
@@ -166,8 +168,53 @@ sources:
               - not_null                                             
 
       #production
-        #fazer  
+      - name: billofmaterials
+      - name: culture
+      - name: illustration
+      - name: location
+      - name: product
+      - name: productcategory
+      - name: productcosthistory
+      - name: productdescription
+      - name: productdocument
+      - name: productinventory
+      - name: productlistpricehistory
+      - name: productmodel
+      - name: productmodelillustration
+      - name: productmodelproductdescriptionculture
+      - name: productproductphoto
+      - name: productsubcategory
+      - name: scrapreason
+      - name: transactionhistory
+      - name: transactionhistoryarchive
+      - name: unitmeasure
+      - name: workorder
+      - name: workorderrouting
+
       #purchasing
-        #fazer
+      - name: productvendor
+      - name: purchaseorderdetail
+      - name: purchaseorderheader
+      - name: shipmethod
+      - name: vendor
+
       #sales
-        #fazer
+      - name: countryregioncurrency
+      - name: creditcard
+      - name: currency
+      - name: currencyrate
+      - name: customer
+      - name: personcreditcard
+      - name: salesorderdetail
+      - name: salesorderheader
+      - name: salesorderheadersalesreason
+      - name: salesperson
+      - name: salespersonquotahistory
+      - name: salesreason
+      - name: salestaxrate
+      - name: salesterritory
+      - name: salesterritoryhistory
+      - name: shoppingcartitem
+      - name: specialoffer
+      - name: specialofferproduct
+      - name: store
