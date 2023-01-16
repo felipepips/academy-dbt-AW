@@ -24,7 +24,7 @@ clean-targets:         # diretórios a serem removidos pelo "dbt clean"
 # Nas configurações abaixo especifica-se em quais pastas e quais modelos serão criados pelo "dbt build"
 # Essas configurações podem ser sobrescritas nos modelos individiduais pela macro `{{ config(...) }}`
 models:
-  adventureWorks:
+  dbt_adventure_works:
     sources:
       +materialized: view
 
@@ -35,6 +35,6 @@ models:
       +materialized: table
 
 seeds:
-  adventureWorks:
+  dbt_adventure_works:
     sap_adventure_works:
       +schema: aw_seeds_sap
