@@ -1,0 +1,173 @@
+version: 2
+
+sources: 
+  - name: erp
+    description: Principais dados do erp (SAP) da Adventure Works.
+    schema: dbt_felipepips_aw_seeds_sap
+    tables: 
+
+      #human_resources
+      - name: department
+        description: tabela de departamentos, uma linha por departamento
+        columns:
+          - name: departmentid
+            description: chave principal
+            tests:
+              - unique
+              - not_null
+
+      - name: employee
+        description: tabela de empregados, uma linha por empregado
+        columns:
+          - name: businessentityid
+            description: chave principal
+            tests:
+              - unique
+              - not_null
+
+      - name: employeedepartmenthistory
+        description: histórico de empregados, troca de departamento, uma linha por evento
+        columns:
+          - name: businessentityid
+            description: chave principal, pode repetir
+            tests:
+              - not_null
+
+      - name: employeepayhistory
+        description: histórico de empregados, pagamentos, uma linha por evento
+        columns:
+          - name: businessentityid
+            description: chave principal, pode repetir
+            tests:
+              - not_null
+
+      - name: jobcandidate
+        description: tabela de candidatos a vagas (?), uma linha por candidato
+        columns:
+          - name: jobcandidateid
+            description: chave principal
+            tests:
+              - unique
+              - not_null
+
+      - name: shift
+        description: tabela de turnos de trabalho, uma linha por turno
+        columns: 
+          - name: shiftid
+            description: chave principal
+            tests:
+              - unique
+              - not_null    
+
+      #person
+      - name: address
+        description: tabela de endereços, uma linha por endereço
+        columns: 
+          - name: addressid
+            description: chave principal
+            tests:
+              - unique
+              - not_null                                                            
+
+      - name: addresstype
+        description: tabela de tipos de endereços, uma linha por tipo de endereço
+        columns: 
+          - name: addresstypeid
+            description: chave principal
+            tests:
+              - unique
+              - not_null   
+
+      - name: businessentity
+        description: tabela de entidades de negócio, uma linha por entidade
+        columns: 
+          - name: businessentity
+            description: chave principal (verificar se deve ser único ou não)
+            tests:
+              # - unique
+              - not_null   
+
+      - name: businessentityaddress
+        description: tabela de endereços de entidades, uma linha por endereço
+        columns: 
+          - name: addressid
+            description: chave principal
+            tests:
+              - unique
+              - not_null   
+
+      - name: businessentitycontact
+        description: tabela de contatos de entidades, uma linha por contato
+        columns: 
+          - name: businessentityid
+            description: chave principal, pode repetir
+            tests:
+              - not_null   
+
+      - name: contacttype
+        description: tabela de tipo de contato, uma linha por tipo
+        columns: 
+          - name: contacttypeid
+            description: chave principal
+            tests:
+              - unique
+              - not_null   
+
+      - name: countryregion
+        description: tabela de países e regiões, uma linha por região
+        columns: 
+          - name: countryregioncode
+            description: chave principal
+            tests:
+              - unique
+              - not_null   
+
+      - name: emailaddress
+        description: tabela de endereços de e-mail, uma linha por endereço de e-mail
+        columns: 
+          - name: businessentityid
+            description: chave principal, pode repetir
+            tests:
+              - not_null   
+
+      - name: person
+        description: tabela de pessoas, uma linha por pessoa
+        columns: 
+          - name: businessentityid
+            description: chave principal
+            tests:
+              - unique
+              - not_null   
+
+      - name: personphone
+        description: tabela de telefones de pessoas, uma linha por telefone
+        columns: 
+          - name: businessentityid
+            description: chave principal, pode repetir
+            tests:
+              - not_null   
+
+      - name: phonenumbertype
+        description: tabela de tipos de telefones, uma linha por tipo
+        columns: 
+          - name: phonenumbertypeid
+            description: chave principal
+            tests:
+              - unique
+              - not_null   
+
+      - name: stateprovince
+        description: tabela de estados/províncias, uma linha por estado
+        columns: 
+          - name: stateprovinceid
+            description: chave principal
+            tests:
+              - unique
+              - not_null                                             
+
+      #production
+        #fazer  
+      #purchasing
+        #fazer
+      #sales
+        #fazer
