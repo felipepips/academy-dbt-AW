@@ -1,0 +1,138 @@
+version: 2
+
+models: 
+
+#vendas
+  - name: stg_erp__vendas-header
+    description: Staging Vendas / Header
+    columns:
+      - name: id_venda
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null 
+
+  - name: stg_erp__vendas-detalhes
+    description: Staging Detalhes de Vendas
+    columns:
+      - name: id_venda
+        description: FK, chave principal da tabela de vendas
+        tests:
+          - not_null   
+          - relationships:
+              to: ref('stg_erp__vendas-header')
+              field: id_venda
+
+      - name: id_detalhe
+        description: chave principal dos detalhes de vendas
+        tests:
+          - unique
+          - not_null  
+
+  - name: stg_erp__vendas-motivos-header
+    description: Staging Motivos de Vendas / Header
+    columns:
+      - name: id_venda
+        description: FK, chave principal da tabela de vendas
+        tests:
+          - not_null   
+          - relationships:
+              to: ref('stg_erp__vendas-header')
+              field: id_venda
+
+      - name: id_motivo
+        description: FK, chave principal da tabela de motivos
+        tests:
+          - not_null   
+          - relationships:
+              to: ref('stg_erp__vendas-motivos')
+              field: id_motivo
+              
+    tests:
+    - unique:
+        column_name: "id_venda || '-' || id_motivo"
+
+  - name: stg_erp__vendas-motivos
+    description: Staging Motivos de Vendas
+    columns:
+      - name: id_motivo
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null   
+
+  - name: stg_erp__vendas-regioes
+    description: Staging Regiões de Vendas
+    columns:
+      - name: id_regiao
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null   
+
+  - name: stg_erp__vendedores
+    description: Staging Vendedores
+    columns:
+      - name: id_entidade
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null  
+
+  - name: stg_erp__clientes
+    description: Staging Clientes
+    columns:
+      - name: id_cliente
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null             
+
+
+#pessoas
+  - name: stg_erp__enderecos
+    description: Staging Enderecos
+    columns:
+      - name: id_endereco
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_erp__regioes-estados
+    description: Staging Regiões / Estados
+    columns:
+      - name: id_estado
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_erp__regioes-paises
+    description: Staging Regiões / Países
+    columns:
+      - name: cod_pais
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_erp__pessoas
+    description: Staging Pessoas
+    columns:
+      - name: id_entidade
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null       
+
+
+#produtos
+  - name: stg_erp__produtos
+    description: Staging Produtos
+    columns:
+      - name: id_produto
+        description: chave primária da tabela
+        tests:
+          - unique
+          - not_null                                                                    
