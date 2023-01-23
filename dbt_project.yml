@@ -29,7 +29,8 @@ models:
       +materialized: view
 
     stagings:
-      +materialized: view
+      +schema: aw_stg
+      +materialized: table
 
     marts:
       +materialized: table
