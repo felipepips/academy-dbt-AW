@@ -1,0 +1,13 @@
+version: 2
+
+models: 
+
+#comercial
+  - name: fct_vendas
+    description: Fatos Vendas
+    columns:
+      - name: sk_vendas
+        description: chave primária da tabela (união id_venda e id_detalhe de vendas)
+        tests:
+          - unique
+          - not_null 
