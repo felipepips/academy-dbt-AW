@@ -1,6 +1,7 @@
 version: 2
 
 #To Do: inserir descrições e testes para as tabelas das categorias production, purchasing e sales.
+#Existem mais testes em stagings/stagings.yml
 
 sources: 
   - name: erp

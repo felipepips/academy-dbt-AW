@@ -33,6 +33,7 @@ models:
       +materialized: table
 
     marts:
+      +schema: aw_marts
       +materialized: table
 
 seeds:
